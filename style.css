@@ -1,0 +1,256 @@
+:root {
+  --color-primary: #158d97;
+  --color-primary--light: #14a4b1;
+  --color-secondary: #c5ba5c;
+  --color-secondary--light: #d5cd86;
+  --color-tertiary: #e04e0f;
+  --dark-color: #424b4c;
+  --light-color: #effff7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.9;
+  background-color: #f3f3f3;
+}
+.btn--scroll-to {
+  display: inline-block;
+  background: none;
+  font-size: 2rem;
+  z-index: 200;
+  font-family: inherit;
+  font-weight: 800;
+  color: var(--dark-color);
+  border: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.section {
+  padding-bottom: 9rem;
+  border-top: 1px solid #ddd;
+  transition: transform 1s, opacity 1s;
+}
+
+.slider {
+  max-width: 100%;
+  height: 90vh;
+  margin: 0 auto;
+  position: relative;
+
+  /* IN THE END */
+  overflow: hidden;
+}
+.slider__btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
+  font-family: inherit;
+  color: #333;
+  border-radius: 50%;
+  height: 5.5rem;
+  width: 5.5rem;
+  font-size: 3.25rem;
+  cursor: pointer;
+}
+
+.slider__btn--left {
+  left: 6%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__btn--right {
+  right: 6%;
+  transform: translate(50%, -50%);
+}
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* THIS creates the animation! */
+  transition: transform 1s;
+}
+.slide > img {
+  /* Only for images that have different size than slide */
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slide__photo {
+  position: relative;
+}
+.slide__text {
+  color: white;
+  position: absolute;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+  width: 100vh;
+  z-index: 200;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.photo {
+  filter: contrast(50%);
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+
+  /* Only necessary when overlying images */
+  /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
+}
+
+.dots__dot:last-child {
+  margin: 0;
+}
+
+.dots__dot--active {
+  /* background-color: #fff; */
+  background-color: #888;
+  opacity: 1;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  row-gap: 3rem;
+}
+.image {
+  width: 30vh;
+  height: 30vh;
+  padding: 2rem;
+  margin: 3rem;
+  box-shadow: 0 1.5rem 4rem var(--dark-color);
+  transition: ease 0.2s;
+}
+.image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.section--3 {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary),
+    var(--color-primary--light)
+  );
+}
+.row__section--3 {
+  max-width: 120rem;
+  margin: auto;
+}
+.row__section--3:not(:last-child) {
+  margin-bottom: 8rem;
+}
+.contact {
+  background-image: linear-gradient(
+      105deg,
+      rgba(240, 240, 240, 0.6) 0%,
+      rgba(240, 240, 240, 0.6) 50%,
+      transparent 50%
+    ),
+    url(/img/gallery/cappadocia.jpg);
+  background-size: 100%;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem var(--dark-color);
+
+  height: 50rem;
+}
+.contact__form {
+  width: 50%;
+  padding: 6rem;
+}
+.form__group:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.form__input {
+  font-size: 1.5rem;
+  color: inherit;
+  font-family: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(240, 240, 240, 0.9);
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  display: block;
+}
+.form__input:focus {
+  outline: none;
+  box-shadow: 0 1rem 2rem rgba(34, 33, 33, 0.1);
+  border-bottom: 3px solid var(--color-primary);
+}
+.form__input:focus:invalid {
+  border-bottom: 3px solid var(--color-tertiary);
+}
+
+/* Work only on safary and chrome */
+.form__input::-webkit-input-placeholder {
+  color: var(--dark-color);
+}
+
+/* ~ general sibling selector 
+   + adjacent sibling selector
+*/
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+}
