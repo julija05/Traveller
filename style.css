@@ -53,16 +53,91 @@ body {
     padding: 0;
   }
 }
+.link {
+  z-index: 999999 !important;
+  cursor: pointer;
+}
+.preview {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #fff;
+  max-width: 40rem;
+  width: 100%;
+  z-index: 2000;
+  padding: 0 5px 5px 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+}
 
+.preview.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all 0.3 ease;
+}
+
+.preview .preview__image {
+  display: flex;
+  width: 100%;
+}
+.preview .preview__image img {
+  width: 100%;
+  border-radius: 0 0 3px 3px;
+}
+.preview .preview__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px 12px 10px;
+}
+.preview .preview__heading .icon {
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: 20px;
+  z-index: 2000;
+}
+.preview__heading .title {
+  display: flex;
+  font-size: 1.8rem;
+}
+.preview__heading .title p {
+  margin: 0 5px;
+}
+
+.preview__heading .title p.current-img {
+  font-weight: 600;
+}
+.preview__image .slide__gallery {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3rem;
+  cursor: pointer;
+  color: var(--light-color);
+  width: 60px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.preview__image .slide__gallery.prev {
+  left: 0;
+}
+.preview__image .slide__gallery.next {
+  right: 0;
+}
 .section {
   margin-bottom: 1.5rem;
   border-top: 1px solid #ddd;
-  transition: transform 1s, opacity 1s;
+  position: relative;
 }
 .slider {
   position: relative;
   overflow: hidden;
-  height: 95vh;
+  height: 100vh;
   width: 100%;
 }
 .slide {
@@ -80,7 +155,7 @@ body {
 .slide .slide__text {
   position: absolute;
   bottom: 7rem;
-  left: -30rem;
+  left: -20rem;
   width: 60rem;
   opacity: 0;
   background-color: rgba(52, 136, 129, 0.6);
@@ -142,12 +217,12 @@ p {
 }
 @media only screen and (max-width: 56.25em) {
   .slide .slide__text {
-    bottom: -600px;
+    bottom: -200px;
     left: 0;
     width: 100%;
   }
   .slide.show .slide__text {
-    transform: translateY(-600px);
+    transform: translateY(-200px);
   }
   p {
     font-size: 1rem;
@@ -211,8 +286,9 @@ p {
 }
 
 .image {
-  width: 30vh;
+  width: 20vh;
   height: auto;
+  max-height: 20vh;
   padding: 2rem;
   margin: 3rem;
   box-shadow: 0 1.5rem 4rem var(--dark-color);

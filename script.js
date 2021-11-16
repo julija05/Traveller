@@ -1,25 +1,71 @@
 "use strict";
 
-// const btnScrollTo = document.querySelector(".btn--scroll-to");
-// const section1 = document.querySelector("#section--1");
+const gallery = document.querySelectorAll(".row .image"),
+  galleryBox = document.querySelector(".gallery"),
+  preview = document.querySelector(".preview"),
+  previewImg = document.querySelector("#previewimg"),
+  closeIcon = document.querySelector(".icon"),
+  previewNext = document.querySelector(".next"),
+  previewPrev = document.querySelector(".prev");
+let show = false;
 
-// btnScrollTo.addEventListener("click", function (e) {
-//   const s1coords = section1.getBoundingClientRect();
-//   //   console.log(s1coords);
-//   //   e.target.getBoundingClientRect();
-//   //   console.log("Current scroll(X/Y)", window.pageXOffset, pageYOffset);
-//   //   console.log(
-//   //     "heigh/width viewport",
-//   //     document.documentElement.clientHeight,
-//   //     document.documentElement.clientWidth
-//   //   );
-//   section1.scrollIntoView({ behavior: "smooth" });
-// });
+console.log(gallery);
+let current = 0;
+window.onload = () => {
+  document.body.onclick = (e) => {
+    preview.classList.remove("show");
+  };
+
+  previewNext.onclick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (current >= gallery.length) {
+      current = 0;
+    } else {
+      current++;
+    }
+    previewImg.src = gallery[current].src;
+  };
+
+  previewPrev.onclick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (current <= 0) {
+      current = gallery.length - 1;
+    } else {
+      current--;
+    }
+    previewImg.src = gallery[current].src;
+  };
+
+  preview.onclick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  for (let i = 0; i < gallery.length; i++) {
+    gallery[i].onclick = (e) => {
+      let c = i;
+      e.preventDefault();
+      e.stopPropagation();
+      let selectedUrl = gallery[i].src;
+      previewImg.src = selectedUrl;
+      current = c;
+      console.log(previewImg.src);
+
+      preview.classList.add("show");
+
+      closeIcon.onclick = (e) => {
+        preview.classList.remove("show");
+      };
+    };
+  }
+};
 
 const slides = document.querySelectorAll(".slide");
 const right = document.querySelector(".slider__btn--right");
 const left = document.querySelector(".slider__btn--left");
-const auto = true;
+const auto = false;
 
 const interval = 5000;
 let slideInterval;
@@ -50,6 +96,7 @@ const prevSlide = () => {
 };
 
 right.addEventListener("click", (e) => {
+  e.preventDefault();
   nextSlide();
   if (auto) {
     clearInterval(slideInterval);
@@ -58,6 +105,7 @@ right.addEventListener("click", (e) => {
 });
 
 left.addEventListener("click", (e) => {
+  e.preventDefault();
   prevSlide();
   clearInterval(slideInterval);
   slideInterval = setInterval(nextSlide, interval);
