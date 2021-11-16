@@ -7,6 +7,8 @@ const gallery = document.querySelectorAll(".row .image"),
   closeIcon = document.querySelector(".icon"),
   previewNext = document.querySelector(".next"),
   previewPrev = document.querySelector(".prev");
+const currentImg = document.querySelector(".current-img");
+
 let show = false;
 
 console.log(gallery);
@@ -19,11 +21,12 @@ window.onload = () => {
   previewNext.onclick = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (current >= gallery.length) {
+    if (current + 1 >= gallery.length) {
       current = 0;
     } else {
       current++;
     }
+    currentImg.innerHTML = current + 1;
     previewImg.src = gallery[current].src;
   };
 
@@ -35,6 +38,7 @@ window.onload = () => {
     } else {
       current--;
     }
+    currentImg.innerHTML = current + 1;
     previewImg.src = gallery[current].src;
   };
 
@@ -51,7 +55,8 @@ window.onload = () => {
       let selectedUrl = gallery[i].src;
       previewImg.src = selectedUrl;
       current = c;
-      console.log(previewImg.src);
+      // console.log(previewImg.src);
+      currentImg.innerHTML = current + 1;
 
       preview.classList.add("show");
 
