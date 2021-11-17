@@ -162,7 +162,7 @@ body {
 .slide .slide__text {
   position: absolute;
   bottom: 7rem;
-  left: -40rem;
+  left: -45rem;
   width: 60rem;
   opacity: 0;
   background-color: rgba(52, 136, 129, 0.8);
@@ -220,6 +220,7 @@ p {
   }
   p {
     font-size: 1rem;
+    text-align: left;
   }
 }
 @media only screen and (max-width: 56.25em) {
@@ -232,7 +233,8 @@ p {
     transform: translateY(-200px);
   }
   p {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    text-align: left;
   }
 }
 .slide:first-child {
