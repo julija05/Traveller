@@ -9,7 +9,7 @@ const gallery = document.querySelectorAll(".row .image"),
   previewPrev = document.querySelector(".prev");
 const currentImg = document.querySelector(".current-img");
 
-let show = false;
+let show = true;
 
 console.log(gallery);
 let current = 0;
