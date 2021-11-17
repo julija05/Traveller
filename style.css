@@ -371,18 +371,15 @@ p {
         transparent 50%
       ),
       url(/img/cappadocia.jpg);
-    background-repeat: no-repeat;
   }
 }
 @media only screen and (max-width: 37.5em) {
   .contact {
     background-image: linear-gradient(
       105deg,
-      rgba(212, 138, 19, 0.6) 0%,
-      rgba(185, 132, 19, 0.6) 50%,
-      rgba(222, 222, 222, 0.6) 50%
+      rgba(240, 240, 240, 0.6) 0%,
+      rgba(240, 240, 240, 0.6) 50%
     );
-    background-repeat: no-repeat;
   }
 }
 
@@ -520,18 +517,19 @@ p {
   color: var(--light-color);
 }
 .footer__navigation {
-  border-top: 1px solid var(--dark-color);
+  border-top: 1px solid rgb(47, 47, 47);
   padding: 2rem;
   display: inline-block;
 }
 .footer__list {
   list-style: none;
+  text-decoration: none;
 }
 .footer__item {
   display: inline-block;
 }
 .footer__link.footer__link:visited {
-  color: gainsboro;
+  color: var(--light-color);
   background-color: var(--dark-color);
   text-decoration: none;
   text-transform: uppercase;
