@@ -214,6 +214,7 @@ p {
     bottom: -300px;
     left: 0;
     width: 100%;
+    padding: 1rem;
   }
   .slide.show .slide__text {
     transform: translateY(-300px);
@@ -228,6 +229,7 @@ p {
     bottom: -200px;
     left: 0;
     width: 100%;
+    padding: 1rem;
   }
   .slide.show .slide__text {
     transform: translateY(-200px);
