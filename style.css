@@ -357,7 +357,7 @@ p {
       rgba(240, 240, 240, 0.6) 50%,
       transparent 50%
     ),
-    url(/img/gallery/cappadocia.jpg);
+    url(/img/cappadocia.jpg);
   background-size: 100%;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem var(--dark-color);
@@ -370,7 +370,7 @@ p {
         rgba(240, 240, 240, 0.6) 50%,
         transparent 50%
       ),
-      url(/img/gallery/cappadocia.jpg);
+      url(/img/cappadocia.jpg);
     background-repeat: no-repeat;
   }
 }
@@ -521,7 +521,7 @@ p {
 }
 .footer__navigation {
   border-top: 1px solid var(--dark-color);
-  padding-top: 2rem;
+  padding: 2rem;
   display: inline-block;
 }
 .footer__list {
