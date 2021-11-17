@@ -9,7 +9,7 @@ const gallery = document.querySelectorAll(".row .image"),
   previewPrev = document.querySelector(".prev");
 const currentImg = document.querySelector(".current-img");
 
-let show = true;
+let show = false;
 
 console.log(gallery);
 let current = 0;
@@ -70,7 +70,7 @@ window.onload = () => {
 const slides = document.querySelectorAll(".slide");
 const right = document.querySelector(".slider__btn--right");
 const left = document.querySelector(".slider__btn--left");
-const auto = false;
+const auto = true;
 
 const interval = 5000;
 let slideInterval;
