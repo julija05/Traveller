@@ -1,2 +1,2 @@
 # Traveler
-Traveler is a styled and responsive website which contains a full screen slider,gallery and contact form.
+Traveler is a responsive website which contains a full screen slider,gallery and contact form.
